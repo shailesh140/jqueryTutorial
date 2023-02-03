@@ -137,21 +137,22 @@
             if(target!=null){ 
               for(var i=0;i<target.length;i++){
                 var p=$(target).parent().attr("data-target");
-                if(searchword){
-                  $(p+':contains('+searchword+')').addClass('show');
-                }
-                else{
-                  $(p).removeClass('show');
-                }
+                // if(searchword){
+                //   $(p+':contains('+searchword+')').addClass('show');
+                // }
+                // else{
+                //   $(p).removeClass('show');
+                // }
                 
         
                 if(reg){
                   $(target[i]).html($(target[i]).text().replace(reg,function(match){
                       if(match){
-                       
+                        $(p+':contains('+searchword+')').addClass('show');
                         return "<span class='highlight'>"+match+"</span>";
                       }
                       else{
+                        $(p).removeClass('show');
                         return match;
                       }
                     })
